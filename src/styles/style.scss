@@ -1,0 +1,21 @@
+@use '_abstract' as *;
+
+* {
+    font-family: $font-family;
+}
+
+h1 {
+    font-size: $font-header;
+}
+
+h2 {
+    font-size: $font-subheader;
+}
+
+p {
+    font-size: $font-paragraph;
+}
+
+small {
+    font-size: $font-small;
+}
