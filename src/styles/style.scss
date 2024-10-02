@@ -1,11 +1,18 @@
 @use '_abstract' as *;
+@use '_utils' as *;
 
 * {
     font-family: $font-family;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: lighten($color-gray, 30%);
 }
 
 h1 {
-    font-size: $font-header;
+    font-size: $font-paragraph;
 }
 
 h2 {
@@ -18,4 +25,48 @@ p {
 
 small {
     font-size: $font-small;
+}
+
+aside {
+    background-color: $color-white;
+    border-right: 2px $color-gray solid;
+    width: fit-content;
+    max-width: 25%;
+    min-width: min-content;
+    padding: 1.5rem;
+    height: 100vh;
+    box-sizing: border-box;
+    @include flex(column, baseline, flex-start);
+    gap: 3rem;
+    header {
+        @include flex();
+        gap: 0.5rem;
+    }
+    nav {
+        @include flex(column, baseline, flex-start);
+        gap: 1rem;
+        p {
+            text-transform: uppercase;
+            color: $color-gray;
+        }
+        ul {
+            @include flex(column, baseline, flex-start);
+            margin: 0;
+            padding: 0;
+            gap: 1rem;
+        }
+    }
+}
+
+.logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    * {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+.colored-icon {
+    filter: invert(44%) sepia(87%) saturate(1573%) hue-rotate(172deg) brightness(102%) contrast(104%);
 }
