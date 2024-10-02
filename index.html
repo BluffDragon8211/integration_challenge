@@ -8,11 +8,21 @@
     <link rel="shortcut icon" href="/public/imgs/logo.ico" type="image/x-icon">
 </head>
 <body>
-    <h1>header</h1>
-    <h2>subheader</h2>
-    <p>paragraph</p>
-    <small>small</small>
-    <img src="/public/imgs/icons/magnifying-glass.svg" class="colored-icon" alt="">
-    <script src="/src/scripts/components/component.js"></script>
+    <aside>
+        <header>
+            <a href="#" class="logo"><img src="/public/imgs/logo.png" alt="Logo de note de musique"></a>
+            <h1>Histoires & compagnie</h1>
+        </header>
+        <nav>
+            <p>Menu</p>
+            <ul>
+                <nav-link icon="house" url="/">Home</nav-link>
+                <nav-link icon="squares" url="/?=c">Catégories</nav-link>
+                <nav-link icon="heart" url="/?=h">Favoris</nav-link>
+                <nav-link icon="microphone" url="/?=m">Enregistrer un récit</nav-link>
+            </ul>
+        </nav>
+    </aside>
+    <script src="/src/scripts/components/nav-link.js"></script>
 </body>
 </html>

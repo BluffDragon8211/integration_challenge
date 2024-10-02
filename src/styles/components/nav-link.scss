@@ -1,0 +1,20 @@
+@use '../_abstract' as *;
+@use '../_utils' as *;
+
+li, li a {
+    list-style: none;
+    @include flex(row, center, flex-start);
+    gap: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: $color-text;
+    &:hover {
+        filter: brightness(0) saturate(100%) invert(71%) sepia(0%) saturate(1061%) hue-rotate(139deg) brightness(91%) contrast(84%);
+    }
+}
+
+.current {
+    filter: invert(44%) sepia(87%) saturate(1573%) hue-rotate(172deg) brightness(102%) contrast(104%) !important;
+}
