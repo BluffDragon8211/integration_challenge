@@ -1,0 +1,38 @@
+@use '../_abstract' as *;
+@use '../_utils' as *;
+
+article {
+    @include flex(column, baseline, flex-start);
+    min-width: fit-content;
+    width: 100%;
+    & > div {
+        position: relative;
+        height: fit-content;
+        width: 100%;
+        padding: 0;
+        .tag {
+            position: absolute;
+            bottom: 0.75rem;
+            left: 0.5rem;
+            background-color: $color-white;
+            border-radius: 1rem;
+            padding: 0.5rem;
+            font-size: $font-small;
+            color: $color-gray;
+        }
+        like-element {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+        }
+        img {
+            border-radius: 0.5rem;
+            object-fit: cover;
+            width: 100%;
+        }
+    }
+    p {
+        margin: 0;
+        padding: 0 0.5rem;
+    }
+}

@@ -10,6 +10,7 @@ li, li a {
 a {
     text-decoration: none;
     color: $color-text;
+    transition: filter 250ms;
     &:hover {
         filter: brightness(0) saturate(100%) invert(71%) sepia(0%) saturate(1061%) hue-rotate(139deg) brightness(91%) contrast(84%);
     }
