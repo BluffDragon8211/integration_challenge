@@ -67,11 +67,38 @@ main {
     padding: 1.5rem 4rem;
     box-sizing: border-box;
     overflow-y: scroll;
+    @include flex(column, center, flex-start);
+    gap: 3rem;
     header {
+        width: 100%;
         @include flex(row, center, space-between);
         gap: 1rem;
         span {
             color: $color-gray;
+        }
+    }
+
+    #heroes {
+        width: 100%;
+        @include flex(column, center, flex-start);
+        gap: 2rem;
+        header {
+            width: 100%;
+            @include flex(row, center, space-between);
+        }
+        #card-list {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-areas: "small1 small2 large large" "small3 small4 large large";
+            gap: 1rem;
+            custom-card {
+                width: 100%;
+            }
+            .large {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
         }
     }
 }
@@ -109,5 +136,14 @@ main {
     }
     &:has(:focus) {
         border-color: $color-text;
+    }
+}
+
+.filter {
+    text-decoration: none;
+    color: $color-gray;
+    &-active {
+        text-decoration: none;
+        color: $color-accent;
     }
 }

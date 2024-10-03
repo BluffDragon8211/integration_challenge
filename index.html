@@ -23,6 +23,38 @@
             </ul>
         </nav>
     </aside>
+    <main>
+        <header>
+            <div class="search-bar" onclick="this.querySelector('input').focus()">
+                <img src="/public/imgs/icons/magnifying-glass.svg" alt="Loupe">
+                <input type="search" name="search" id="search" placeholder="Chercher" autocomplete="off">
+            </div>
+            <span>UserName</span>
+            <img src="/public/imgs/round.svg" class="logo" alt="Photo de profil">
+        </header>
+        <section id="heroes">
+            <header>
+                <div>
+                    <h2>Suggestions</h2>
+                    <nav>
+                        <a href="" class="filter-active">Nouveau</a>
+                        <a href="" class="filter">Sport</a>
+                    </nav>
+                </div>
+                <custom-button icon="microphone" url="/?=m">Enregistrer un récit</custom-button>
+            </header>
+            <div id="card-list">
+                <custom-card tag="Tag" class="small1">Titre</custom-card>
+                <custom-card tag="Tag" class="small2">Titre</custom-card>
+                <custom-card tag="Tag" class="large">Titre</custom-card>
+                <custom-card tag="Tag" class="small3">Titre</custom-card>
+                <custom-card tag="Tag" class="small4">Titre</custom-card>
+            </div>
+        </section>
+    </main>
     <script src="/src/scripts/components/nav-link.js"></script>
+    <script src="/src/scripts/components/like-element.js"></script>
+    <script src="/src/scripts/components/card.js"></script>
+    <script src="/src/scripts/components/button.js"></script>
 </body>
 </html>
