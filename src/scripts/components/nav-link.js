@@ -76,12 +76,14 @@ class NavLink extends HTMLElement {
         if(a) {
             const route = document.location.href.replace(`${document.location.protocol}//${document.location.host}`, '');
             let icon = this.getAttribute('icon');
-            if(route === url) {
-                a.classList.add('current');
-                this.setAttribute('icon', `${icon}-fill`);
-            } else {
-                a.classList.remove('current');
-                this.setAttribute('icon', `${icon.replace('-fill', '')}`);
+            if(icon) {
+                if(route === url) {
+                    a.classList.add('current');
+                    this.setAttribute('icon', `${icon}-fill`);
+                } else {
+                    a.classList.remove('current');
+                    this.setAttribute('icon', `${icon.replace('-fill', '')}`);
+                }
             }
         }
     }
