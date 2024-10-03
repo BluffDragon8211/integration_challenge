@@ -1,0 +1,23 @@
+@use '../_abstract' as *;
+@use '../_utils' as *;
+
+div {
+    transition: background-color 250ms;
+    box-sizing: border-box;
+    background-color: $color-accent;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    width: fit-content;
+    height: fit-content;
+    transition: background-color 250ms;
+    &:hover {
+        cursor: pointer;
+        background-color: $color-green;
+    }
+    a {
+        @include flex(row, center, flex-start);
+        gap: 0.5rem;
+        text-decoration: none;
+        filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(2%) hue-rotate(183deg) brightness(104%) contrast(100%);
+    }
+}
