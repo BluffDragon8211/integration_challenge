@@ -1,5 +1,5 @@
-@use '../_abstract' as *;
-@use '../_utils' as *;
+@use '../../scss/_abstract' as *;
+@use '../../scss/_utils' as *;
 
 li, li a {
     list-style: none;

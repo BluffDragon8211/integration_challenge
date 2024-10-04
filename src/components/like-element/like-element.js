@@ -1,3 +1,5 @@
+import cssText from "./like-element.scss?inline";
+
 class LikeElement extends HTMLElement {
     static sheet = null;
 
@@ -14,19 +16,6 @@ class LikeElement extends HTMLElement {
     async initialize() {
         // On charge la feuille de style si ce n'est pas déjà le cas
         if (!LikeElement.sheet) {
-            const response = await fetch('/src/styles/components/like-element.scss');
-            let cssText = await response.text();
-            let cssBegin = cssText.indexOf('__vite__css');
-            let cssEnd = cssText.lastIndexOf('__vite__update');
-            
-
-            // Netoyage du résultat du fetch pour ne récuperer que le css
-            if(cssBegin !== -1 && cssEnd !== -1) {
-                cssText = cssText.substring(cssBegin + 15, cssEnd - 2);
-                cssText = cssText.replaceAll('\\r', '');
-                cssText = cssText.replaceAll('\\n', '');
-            }
-
             // On crée une nouvelle  CSSStyleSheet object et on utilise replaceSync pour set son content
             const sheet = new CSSStyleSheet();
             sheet.replaceSync(cssText);  // Set de la feuille en sync
@@ -60,9 +49,9 @@ class LikeElement extends HTMLElement {
         if(icon) {
             let active = this.getAttribute('active');
             if(active !== null) {
-                icon.setAttribute('src', '/public/imgs/icons/heart-fill.svg');
+                icon.setAttribute('src', 'imgs/icons/heart-fill.svg');
             } else {
-                icon.setAttribute('src', '/public/imgs/icons/heart.svg');
+                icon.setAttribute('src', 'imgs/icons/heart.svg');
             }
         }
     }

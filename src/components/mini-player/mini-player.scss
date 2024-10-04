@@ -1,5 +1,5 @@
-@use '../_abstract' as *;
-@use '../_utils' as *;
+@use '../../scss/_abstract' as *;
+@use '../../scss/_utils' as *;
 
 article {
     background-color: $color-white;

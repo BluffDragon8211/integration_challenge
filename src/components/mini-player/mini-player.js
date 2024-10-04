@@ -1,3 +1,5 @@
+import cssText from "./mini-player.scss?inline";
+
 class MiniPlayer extends HTMLElement {
     static sheet = null;
 
@@ -14,19 +16,6 @@ class MiniPlayer extends HTMLElement {
     async initialize() {
         // On charge la feuille de style si ce n'est pas déjà le cas
         if (!MiniPlayer.sheet) {
-            const response = await fetch('/src/styles/components/mini-player.scss');
-            let cssText = await response.text();
-            let cssBegin = cssText.indexOf('__vite__css');
-            let cssEnd = cssText.lastIndexOf('__vite__update');
-            
-
-            // Netoyage du résultat du fetch pour ne récuperer que le css
-            if(cssBegin !== -1 && cssEnd !== -1) {
-                cssText = cssText.substring(cssBegin + 15, cssEnd - 2);
-                cssText = cssText.replaceAll('\\r', '');
-                cssText = cssText.replaceAll('\\n', '');
-            }
-
             // On crée une nouvelle  CSSStyleSheet object et on utilise replaceSync pour set son content
             const sheet = new CSSStyleSheet();
             sheet.replaceSync(cssText);  // Set de la feuille en sync
@@ -41,9 +30,9 @@ class MiniPlayer extends HTMLElement {
         const image = document.createElement('img');
         let src = this.getAttribute('image');
         if(src) {
-            image.setAttribute('src', `/public/imgs/icons/${this.getAttribute('image')}.svg`);
+            image.setAttribute('src', `imgs/icons/${this.getAttribute('image')}.svg`);
         } else {
-            image.setAttribute('src', '/public/imgs/image.svg');
+            image.setAttribute('src', 'imgs/image.svg');
         }
         content.appendChild(image);
         const main = document.createElement('div');
@@ -54,7 +43,7 @@ class MiniPlayer extends HTMLElement {
         const audio = document.createElement('audio');
         src = this.getAttribute('audio');
         if(src) {
-            audio.setAttribute('src', `/public/audios/${this.getAttribute('audio')}`);
+            audio.setAttribute('src', `audios/${this.getAttribute('audio')}`);
         }
         audio.addEventListener('timeupdate', this.updateTime.bind(this));
         const progress = document.createElement('progress');
@@ -65,7 +54,7 @@ class MiniPlayer extends HTMLElement {
         const like = document.createElement('like-element');
         const play = document.createElement('img');
         play.classList.add('play');
-        play.setAttribute('src', '/public/imgs/play.svg');
+        play.setAttribute('src', 'imgs/play.svg');
         play.addEventListener('click', this.onPlayClick.bind(this));
         const time = document.createElement('span');
         audio.currentTime = 0.001;
@@ -116,15 +105,15 @@ class MiniPlayer extends HTMLElement {
             let src = play.getAttribute('src');
             if(src !== null) {
                 if(src.includes('play')) {
-                    play.setAttribute('src', '/public/imgs/pause.svg');
+                    play.setAttribute('src', 'imgs/pause.svg');
                 } else if(src.includes('pause')) {
-                    play.setAttribute('src', '/public/imgs/play.svg');
+                    play.setAttribute('src', 'imgs/play.svg');
                 }
             }
         }
     }
 
-    updateTime(e) {
+    updateTime() {
         const audio = this.shadowRoot.querySelector('audio');
         const progress = this.shadowRoot.querySelector('.progress');
         const time = this.shadowRoot.querySelector('.time');
@@ -140,6 +129,9 @@ class MiniPlayer extends HTMLElement {
     }
 
     convertTime(time) {
+        if(isNaN(time)) {
+            return '0:00';
+        }
         time = time / 60;
         let minutes = Math.floor(time);
         let rawSec = time - minutes;
@@ -156,13 +148,13 @@ class MiniPlayer extends HTMLElement {
             case 'image':
                 const img = this.shadowRoot.querySelector('img');
                 if(img) {
-                    img.setAttribute('src', `/public/imgs/${newVal}`);
+                    img.setAttribute('src', `imgs/${newVal}`);
                 }
                 break;
             case 'audio':
                 audio = this.shadowRoot.querySelector('audio');
                 if(audio) {
-                    audio.setAttribute('src', `/public/audios/${newVal}`);
+                    audio.setAttribute('src', `audios/${newVal}`);
                     audio.pause();
                     audio.currentTime = 0;
                 }

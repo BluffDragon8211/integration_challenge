@@ -1,3 +1,5 @@
+import cssText from "./card.scss?inline";
+
 class Card extends HTMLElement {
     static sheet = null;
 
@@ -10,19 +12,6 @@ class Card extends HTMLElement {
     async initialize() {
         // On charge la feuille de style si ce n'est pas déjà le cas
         if (!Card.sheet) {
-            const response = await fetch('/src/styles/components/card.scss');
-            let cssText = await response.text();
-            let cssBegin = cssText.indexOf('__vite__css');
-            let cssEnd = cssText.lastIndexOf('__vite__update');
-            
-
-            // Netoyage du résultat du fetch pour ne récuperer que le css
-            if(cssBegin !== -1 && cssEnd !== -1) {
-                cssText = cssText.substring(cssBegin + 15, cssEnd - 2);
-                cssText = cssText.replaceAll('\\r', '');
-                cssText = cssText.replaceAll('\\n', '');
-            }
-
             // On crée une nouvelle  CSSStyleSheet object et on utilise replaceSync pour set son content
             const sheet = new CSSStyleSheet();
             sheet.replaceSync(cssText);  // Set de la feuille en sync
@@ -38,9 +27,9 @@ class Card extends HTMLElement {
         const image = document.createElement('img');
         let src = this.getAttribute('image');
         if(src) {
-            image.setAttribute('src', `/public/imgs/icons/${this.getAttribute('image')}.svg`);
+            image.setAttribute('src', `imgs/icons/${this.getAttribute('image')}.svg`);
         } else {
-            image.setAttribute('src', '/public/imgs/image.svg');
+            image.setAttribute('src', 'imgs/image.svg');
         }
         const tag = document.createElement('span');
         tag.textContent = this.getAttribute('tag');

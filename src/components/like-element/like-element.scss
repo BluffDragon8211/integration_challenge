@@ -1,9 +1,9 @@
-@use '../_abstract' as *;
-@use '../_utils' as *;
+@use '../../scss/_abstract' as *;
+@use '../../scss/_utils' as *;
 
 div {
     box-sizing: border-box;
-    background-color: darken($color-white, 5%);
+    background-color: $color-medium-gray;
     padding: 0.25rem;
     border-radius: 50%;
     width: 2rem;
