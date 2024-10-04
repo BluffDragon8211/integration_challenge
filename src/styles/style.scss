@@ -147,3 +147,19 @@ main {
         color: $color-accent;
     }
 }
+
+#players {
+    width: 100%;
+    @include flex(row, center, space-between);
+    gap: 1rem;
+    mini-player {
+        width: 100%;
+        h3 {
+            font-size: $font-paragraph;
+        }
+        p {
+            font-size: $font-small;
+            color: $color-gray;
+        }
+    }
+}
