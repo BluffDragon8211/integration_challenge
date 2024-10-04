@@ -19,12 +19,12 @@
                 <nav-link icon="house" url="/">Home</nav-link>
                 <nav-link icon="squares" url="/?=c">Catégories</nav-link>
                 <nav-link icon="heart" url="/?=h">Favoris</nav-link>
-                <nav-link icon="microphone" url="/?=m">Enregistrer un récit</nav-link>
+                <nav-link icon="microphone" url="/record.html">Enregistrer un récit</nav-link>
             </ul>
         </nav>
     </aside>
     <main>
-        <header>
+        <header id="header-index">
             <div class="search-bar" onclick="this.querySelector('input').focus()">
                 <img src="/public/imgs/icons/magnifying-glass.svg" alt="Loupe">
                 <input type="search" name="search" id="search" placeholder="Chercher" autocomplete="off">
@@ -41,7 +41,7 @@
                         <a href="" class="filter">Sport</a>
                     </nav>
                 </div>
-                <custom-button icon="microphone" url="/?=m">Enregistrer un récit</custom-button>
+                <custom-button icon="microphone" url="/record.html">Enregistrer un récit</custom-button>
             </header>
             <div id="card-list">
                 <custom-card tag="Tag" class="small1">Titre</custom-card>
@@ -61,15 +61,22 @@
                 <p slot="autor">Auteur</p>
             </mini-player>
         </section>
-        <section id="slider">
-            <custom-card tag="Tag">Titre</custom-card>
-            <custom-card tag="Tag">Titre</custom-card>
-            <custom-card tag="Tag">Titre</custom-card>
-            <custom-card tag="Tag">Titre</custom-card>
-            <custom-card tag="Tag">Titre</custom-card>
-            <custom-card tag="Tag">Titre</custom-card>
-            <custom-card tag="Tag">Titre</custom-card>
-            <custom-card tag="Tag">Titre</custom-card>
+        <section id="swiper">
+            <header>
+                <h2>Dans d'autres catégories</h2>
+            </header>
+            <div class="swipe-container">
+                <div class="swipe-wrapper">
+                    <custom-card tag="Tag">Titre</custom-card>
+                    <custom-card tag="Tag">Titre</custom-card>
+                    <custom-card tag="Tag">Titre</custom-card>
+                    <custom-card tag="Tag">Titre</custom-card>
+                    <custom-card tag="Tag">Titre</custom-card>
+                    <custom-card tag="Tag">Titre</custom-card>
+                    <custom-card tag="Tag">Titre</custom-card>
+                    <custom-card tag="Tag">Titre</custom-card>
+                </div>
+            </div>
         </section>
     </main>
     <script src="/src/js/app.js" type="module"></script>

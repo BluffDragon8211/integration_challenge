@@ -81,7 +81,7 @@ main {
     overflow-y: scroll;
     @include flex(column, center, flex-start);
     gap: 3rem;
-    header {
+    #header-index {
         width: 100%;
         @include flex(row, center, space-between);
         gap: 1rem;
@@ -110,6 +110,48 @@ main {
             .large {
                 grid-column: span 2;
                 grid-row: span 2;
+            }
+        }
+    }
+    #players {
+        width: 100%;
+        @include flex(row, center, space-between);
+        gap: 1rem;
+        mini-player {
+            width: 100%;
+            h3 {
+                font-size: $font-paragraph;
+            }
+            p {
+                font-size: $font-small;
+                color: $color-gray;
+            }
+        }
+    }
+    #swiper{
+        width: 100%;
+        height: fit-content;
+        header {
+            width: 100%;
+        }
+        .swipe-container {
+            width: 100%;
+            .swipe-wrapper {
+                overflow-x: scroll;
+                scroll-snap-type: x mandatory;
+                scroll-snap-align: start;
+                width: 2px;
+                max-width: 100%;
+                @include flex(row, center, space-between);
+                gap: 1rem;
+                padding: 0;
+                box-sizing: border-box;
+                height: fit-content;
+                custom-card {
+                    flex: 0 0 auto;
+                    width: calc(33% - 1rem);
+                    min-width: min-content;
+                }
             }
         }
     }
@@ -157,21 +199,5 @@ main {
     &-active {
         text-decoration: none;
         color: $color-accent;
-    }
-}
-
-#players {
-    width: 100%;
-    @include flex(row, center, space-between);
-    gap: 1rem;
-    mini-player {
-        width: 100%;
-        h3 {
-            font-size: $font-paragraph;
-        }
-        p {
-            font-size: $font-small;
-            color: $color-gray;
-        }
     }
 }
