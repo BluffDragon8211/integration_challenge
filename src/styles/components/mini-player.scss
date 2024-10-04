@@ -1,0 +1,71 @@
+@use '../_abstract' as *;
+@use '../_utils' as *;
+
+article {
+    background-color: $color-white;
+    width: 100%;
+    height: fit-content;
+    @include flex(row, center, flex-start);
+    & > img {
+        width: 8rem;
+        object-fit: cover;
+    }
+    & > div {
+        width: 100%;
+        height: 8rem;
+        position: relative;
+        @include flex(column, baseline, flex-start);
+        padding: 1rem;
+        box-sizing: border-box;
+        like-element {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+        .play {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+        }
+        .progress {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            bottom: 0;
+            left: 0;
+            border: none;
+            &::-webkit-progress-bar {
+                background-color: #E4E4E7;
+            }
+            &::-webkit-progress-value {
+                background-color: $color-accent;
+            }
+            /*
+            position: absolute;
+            width: 107%;
+            height: 5px;
+            bottom: 0;
+            left: -4px;
+            border: none;
+            margin: 0;
+            color: $color-accent;
+            outline: none;
+            background-image: linear-gradient(to right, $color-accent var(--stop), #E4E4E7 var(--stop));
+            &::-webkit-slider-runnable-track {
+                background-color: transparent;
+                height: 5px;
+                border: none;
+                border-radius: 0;
+            }
+            &::-webkit-slider-thumb {
+                visibility: hidden;
+            }*/
+        }
+        .time {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            font-size: $font-paragraph;
+        }
+    }
+}

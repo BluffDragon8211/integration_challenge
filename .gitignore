@@ -1,3 +1,4 @@
 /node_modules
 /dist
+/public/audios
 package-lock.json
